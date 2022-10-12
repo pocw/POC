@@ -7,14 +7,17 @@
 </head>
 <body>
 <h1 style=" padding-top: 20px;">Here is your CSRF token</h1>
-<!-- <span id="token">Sorry, Try Again !!</span> -->
 <div  style="width: 700px; height: 70px; background-color: #282b2e; color: white; padding-top: 10px; overflow: auto;"><pre><code style="font-size: 14px; "><span id="token">Sorry, Please Try Again !!</span></code></pre></div>
 </body>
 <script type="text/javascript">
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 const CSRF = urlParams.get('__CustomRequestVerificationToken')
+
+	if (urlParams.get('__CustomRequestVerificationToken') == null) {
+document.getElementById("token").innerHTML = "Sorry, Please Try Again !!";}	
+	else{
 document.getElementById("token").innerHTML = CSRF;
+}
 </script>
 </html>
