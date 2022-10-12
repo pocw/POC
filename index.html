@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<h1>Here is your CSRF token</h1>
+<span id="token">Sorry, Try Again !!</span>
 </body>
+<script type="text/javascript">
+const CSRF = urlParams.get('__CustomRequestVerificationToken')
+document.getElementById("token").innerHTML = CSRF;
+</script>
 </html>
